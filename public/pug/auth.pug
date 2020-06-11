@@ -1,0 +1,52 @@
+extends base
+block content
+
+  section.auth
+    .auth--div
+      form.login__form
+        h3.h3 ادخل الي حسابك
+        .username
+          span البريد الالكتروني
+          input(type='email', name='email', value='', placeholder='اكتب بريدك الالكتروني')
+        .password
+          span كلمه السر
+          input(type='password', name='password', value='', placeholder='اكتب كلمه السر', min='8')
+        .buttons
+          button.btn__form(type='submit', formaction='data.html', name='button')
+            | دخــــــــــــــول
+        .foreget__password
+          a(href='#') هل نسيت كلمه السر ؟
+      form.signup--form
+        .text
+          h3.h3 سجل الان
+        .name
+          span الاسم
+          input(type='text', name='first-name', value='', placeholder='اكتب اسمك')
+        .username
+          span البريد الالكتروني 
+          input(type='email', name='email', value='', placeholder='اكتب بريدك الالكتروني')
+        .password
+          span اكتب كلمه السر
+          input(type='password', name='password', value='', min='8', placeholder='اكتب كلمه السر')
+        .password
+          span اعد كتابه كلمه السر
+          input(type='password', name='password', value='', min='8', placeholder='اعد كتابه كلمه السر')
+        .image__upload
+          span الصوره
+          label.label(for='upload') قم باختيار صوره
+          input#upload.upload--input(type='file', value='')
+        .buttons
+          button.btn__form(type='submit', formaction='data.html', name='button')
+            | سجــــــــــل
+      .backToHome
+        a(href='auth.html?auth=login') سجل دخول
+        a(href='auth.html?auth=signup') انشاء حساب
+  script.
+    if (window.location.search.match(/login/g) !== null) {
+    document.querySelector(".login__form").style.display = "block";
+    console.log("done");
+    } else if (window.location.search.match(/signup/g) !== null) {
+    document.querySelector(".signup--form").style.display = "block";
+    } else {
+    document.querySelector(".backToHome").style.display = "flex";
+    }

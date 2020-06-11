@@ -1,0 +1,118 @@
+.about__header {
+  height: 83vh;
+  overflow: hidden;
+  display: flex;
+  padding: 50px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+
+  @media #{$maxMop} {
+    padding: 50px 15px 50px 30px;
+  }
+  .header__welcome--div {
+    width: 500px;
+    padding: 70px 50px;
+    @media #{$maxMop} {
+      padding: 70px 0px;
+    }
+    >h1 {
+      padding-right: 20px;
+      border-right: 5px solid $navColor;
+      color: #444;
+      margin-bottom: 35px;
+    }
+    .welcome__content--p {
+      font-size: 18px;
+    }
+    .header__button {
+
+      >a {
+        background: linear-gradient(45deg,#35b4db,$navColor);
+        width: 150px;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        margin-top: 90px;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+        padding: 5px 0;
+        transition: transform .3s ease-in-out;
+        &:hover {
+          transform: translateY(-3px);
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .header__image--div {
+    width: 600px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    @media #{$maxMop} {
+      display: none;
+    }
+    >img{
+      max-width: 600px;
+      display: inline-flex;
+      animation-name: image;
+      animation-duration: 1.5s;
+      animation-direction: alternate-reverse;
+      animation-iteration-count: infinite;
+      animation-play-state: running;
+      animation-timing-function: ease-in;
+
+    }
+  }
+  .covid--div {
+    position: absolute;
+    height: 60px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    left: -65px;
+    padding: 15px;
+    border-radius: 0 10px 10px 0;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .3s ease-in;
+    &:hover {
+      left: 0;
+    }
+    span {
+      display: block;
+      margin-right: 15px;
+    }
+  }
+  .covid__deaths {
+    top: 25vh;
+    background-color: #e63b3b;
+  }
+  .covid__injuries {
+    top: 37vh;
+    background-color: #e08a25;
+
+  }
+  .covid__recoveries {
+    top: 49vh;
+    background-color: #08c241;
+
+  }
+}
+
+@keyframes image {
+  0%{
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+
+}

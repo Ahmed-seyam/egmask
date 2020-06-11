@@ -1,0 +1,22 @@
+.reset--form {
+  display: flex;
+  flex-direction: column;
+  >.username {
+    display: flex;
+    flex-direction: column;
+    height: 180px !important;
+
+    >input {
+      margin-top: 10px;
+      width: 90% !important;
+    }
+  }
+  .buttons {
+    margin: auto;
+    width: 90% !important;
+    >button {
+      width: 100% !important;
+
+    }
+  }
+}

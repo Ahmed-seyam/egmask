@@ -1,0 +1,143 @@
+.auth {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 50px 0 0;
+  .auth--div {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 1rem #eee;
+    h3 {
+      border-right: 5px solid $navColor;
+      padding-right: 15px;
+      margin-bottom: 30px;
+      color: #444;
+    }
+    >form {
+      >div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 60px;
+        >span {
+          width: 26%;
+          display: block;
+        }
+        input:not([type="file"]) {
+          width: 70%;
+          display: block;
+          padding: 10px 20px;
+          background-color: #f9f9f9;
+          border: none;
+          outline: none;
+          color: #999;
+          font-size: 17px;
+          transition: all .1s;
+          display: block;
+          border-radius: 7px;
+          margin-bottom: 10px;
+        }
+        input:not([type="file"]) {
+          &::-webkit-input-placeholder {
+            color: #bbb;
+          }
+        }
+        input[type="file"] {
+          width: 0;
+          height: 0;
+
+        }
+
+        .label {
+          background-color: $navColor;
+          color: #f9f9f9;
+          padding: 7px 20px;
+          transition: all .3s ease-in-out;
+          cursor: pointer;
+          border-radius: 5px;
+          &:hover {
+            background: none;
+            text-shadow: 0 .5rem 1rem #000;
+            color: $navColor;
+          }
+        }
+
+        button {
+          background-color: $navColor;
+          border: 1px solid $navColor;
+          font-size: 20px;
+          padding: 10px ;
+          width: 96%;
+          border-radius: 20px;
+          margin: 40px 0 0;
+          color: #eee;
+          cursor: pointer;
+          transition: all .3s ease-in-out;
+          display: block;
+          &:hover {
+            background: none;
+            color: $navColor;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+
+    }
+    .buttons {
+      height: 40px;
+    }
+  }
+  .login__form {
+    display: none;
+    .foreget__password {
+      text-align: center;
+      width: 100%;
+      padding: 45px 0 0;
+      >a {
+        color: $navColor;
+      }
+    }
+  }
+  .signup--form {
+    display: none;
+  }
+
+  .backToHome {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    display: none;
+    a {
+      background-color: $navColor;
+      border: 1px solid $navColor;
+      font-size: 20px;
+      padding: 5px 10px ;
+      width: 150px;
+      border-radius: 20px;
+      color: #eee;
+      text-align: center;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      display: block;
+      &:hover {
+        background: none;
+        color: $navColor;
+      }
+    }
+  }
+}
+.form__login {
+  display: none;
+  .foreget__password {
+    margin-top: 40px;
+  }
+}

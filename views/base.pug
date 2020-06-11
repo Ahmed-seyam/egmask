@@ -1,0 +1,43 @@
+doctype html
+html(lang='ar', dir='rtl')
+  head
+    block head
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      title ايجي ماسك
+      link(rel='stylesheet', href='css/main.css')
+      link(href='https://fonts.googleapis.com/css2?family=Amiri&display=swap', rel='stylesheet')
+  body(data-alert=`${alert? alert : ''}`)
+    //
+      *********************** Start nav ********************************
+    nav.nav__bar
+      .logo--div
+        img(src='img/logo.jpg', alt='')
+      ul.nav--ul
+        li
+          a(href='/') الرئيسيه
+        li
+          a(href='/#about') معلومات عنا
+        li
+          a(href='/#products') المنتاجات
+        li
+          a(href='/soon') اسئله متكرره
+        li
+          a(href='/#contact') تواصل معنا
+      .nav__buttons--div
+        -if (!user)
+          a(class="login__btn__nav" href="/auth?q=login") دخول
+          a(class="signup__btn__nav" href="/auth?q=signup") تسجيل
+        -else
+          a(class='nav__el--logout signout__btn__nav' href='') خروج
+          a.user__btn__nav(href='profile?q=data')
+            span Ahmed |
+            img(src=`img/users/${user.photo}`, alt='')
+
+    block content
+
+
+    footer
+      svg(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 1440 320')
+        path(fill='#4fabc1', fill-opacity='1', d='M0,96L18.5,112C36.9,128,74,160,111,165.3C147.7,171,185,149,222,133.3C258.5,117,295,107,332,112C369.2,117,406,139,443,138.7C480,139,517,117,554,138.7C590.8,160,628,224,665,229.3C701.5,235,738,181,775,154.7C812.3,128,849,128,886,138.7C923.1,149,960,171,997,160C1033.8,149,1071,107,1108,80C1144.6,53,1182,43,1218,58.7C1255.4,75,1292,117,1329,117.3C1366.2,117,1403,75,1422,53.3L1440,32L1440,320L1421.5,320C1403.1,320,1366,320,1329,320C1292.3,320,1255,320,1218,320C1181.5,320,1145,320,1108,320C1070.8,320,1034,320,997,320C960,320,923,320,886,320C849.2,320,812,320,775,320C738.5,320,702,320,665,320C627.7,320,591,320,554,320C516.9,320,480,320,443,320C406.2,320,369,320,332,320C295.4,320,258,320,222,320C184.6,320,148,320,111,320C73.8,320,37,320,18,320L0,320Z')
+    script(src='js/bundle.js')

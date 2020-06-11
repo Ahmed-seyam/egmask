@@ -1,0 +1,14 @@
+[
+  {
+    "location": {
+      "description": "Miami, USA",
+      "type": "Point",
+      "coordinates": [-80.185942, 25.774772],
+      "address": "301 Biscayne Blvd, Miami, FL 33132, USA"
+    },
+    "name": "Mask",
+    "product": "id",
+    "email": "test1@example.com",
+    "phoneNumber": "01069828731"
+  }
+]

@@ -1,0 +1,10 @@
+.about--sec {
+  height: 100vh !important;
+  position: relative;
+  @media #{$maxMop} {
+    height: 60vh !important;
+  }
+  .header__welcome--div {
+    margin-top: 30px;
+  }
+}

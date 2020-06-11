@@ -1,0 +1,100 @@
+extends base
+block append head
+  link(href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet')
+  script(src='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js')
+block content
+  //
+    *********************** Start Header ********************************
+  header.about__header
+    .header__welcome--div
+      h1 ايجي ماسك
+      p.welcome__content--p
+        | من خلالنا يمكنك الحصول علي الكمامات والماسكات بسهوله تامه.
+      .header__button
+        a(href='#') اقرأ اكثر
+    .header__image--div
+      img(src='img/cover.jpg', alt='')
+    .covid--div.covid__deaths
+      i.fas.fa-book-dead
+      span 1252
+    .covid--div.covid__injuries
+      i.fas.fa-user-injured
+      span 32552
+    .covid--div.covid__recoveries
+      i.fas.fa-heart
+      span 9252
+  //
+    Start
+    ************************  About section ************************
+  section#about.about--sec.about__header
+    .header__image--div
+      img(src='img/persons.jpg', alt='')
+    .header__welcome--div
+      h1 معلومات عنا
+      p.welcome__content--p
+        | نحن منصه تقوم بتوفير معلومات عن المنتاجات و الموزعين و أماكنهم وطرق
+        | التواصل معهم
+      .header__button
+        a(href='#') اقرأ اكثر
+  //
+    ********************Start Products section****************************
+  section#products.products--sec
+    h1 منتاجتنا
+    .products__cards__container
+      .card1--div
+        .product__image--div
+          img(src='img/products/product2.jpeg', alt='')
+        h3 ايجي ماسك
+        .price__div
+          p يمكنك الحصول عليه بسهوله من اقرب فرع
+          span 15 جنيه
+        button.product__button(type='button', name='button')
+          | ابحث عن اقرب موزع
+      .card1--div
+        .product__image--div
+          img(src='img/products/product2.jpeg', alt='')
+        h3 ايجي ماسك
+        .price__div
+          p يمكنك الحصول عليه بسهوله من اقرب فرع
+          span 15 جنيه
+        button.product__button(type='button', name='button')
+          | ابحث عن اقرب موزع
+      .card1--div
+        .product__image--div
+          img(src='img/products/product2.jpeg', alt='')
+        h3 ايجي ماسك
+        .price__div
+          p يمكنك الحصول عليه بسهوله من اقرب فرع
+          span 15 جنيه
+        button.product__button(type='button', name='button')
+          | ابحث عن اقرب موزع
+      .card1--div
+        .product__image--div
+          img(src='img/products/product2.jpeg', alt='')
+        h3 ايجي ماسك
+        .price__div
+          p يمكنك الحصول عليه بسهوله من اقرب فرع
+          span 15 جنيه
+        button.product__button(type='button', name='button')
+          | ابحث عن اقرب موزع
+  //
+    ************************** Map section ******************************
+  section.mapbox
+    h1 الموزعين
+    #map
+  //
+    ************************** contact section ******************************
+  section#contact.contact
+    form.contact--form
+      h1 تواصل معنا
+      p سيتم الرد عليك سريعا
+      div
+        input(type='text', name='', value='', placeholder='أكتب اسمك')
+      div
+        input(type='email', name='', value='', placeholder='اكتب بريدك الاكلتروني')
+      div
+        input(type='password', name='', value='', placeholder='اكتب بريدك الاكلتروني')
+      .textarea--div
+        textarea(name='name', placeholder='اكتب رسالتك')
+      .btn--div
+        button(type='button', name='button') ارســــــال

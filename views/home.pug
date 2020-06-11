@@ -1,0 +1,74 @@
+extends base
+block append head
+  link(href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet')
+  script(src='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js')
+block content
+  //
+    *********************** Start Header ********************************
+  header.about__header
+    .header__welcome--div
+      h1 ايجي ماسك
+      p.welcome__content--p
+        | من خلالنا يمكنك الحصول علي الكمامات والدروع بسهوله
+      .header__button
+        a(href='#about') اقرأ اكثر
+    .header__image--div
+      img(src='img/cover.jpg', alt='')
+    .covid--div.covid__deaths
+      i.fas.fa-book-dead
+      span= covid.deaths
+    .covid--div.covid__injuries
+      i.fas.fa-user-injured
+      span= covid.injuries
+    .covid--div.covid__recoveries
+      i.fas.fa-heart
+      span= covid.recoveries
+  //
+    Start
+    ************************  About section ************************
+  section#about.about--sec.about__header
+    .header__image--div
+      img(src='img/persons.jpg', alt='')
+    .header__welcome--div
+      h1 معلومات عنا
+      p.welcome__content--p
+        | نحن منصه تقوم بتوفير معلومات عن المنتاجات و الموزعين و أماكنهم وطرق
+        | التواصل معهم
+      .header__button
+        a(href='/soon') اقرأ اكثر
+  //
+    ********************Start Products section****************************
+  section#products(class='products--sec')
+    h1 منتاجتنا
+    .products__cards__container
+      each product,index in products
+        .card1--div
+          .product__image--div
+            img(src=`img/products/${product.photo}` alt=`${product.name}`)
+          h3= product.name
+          .price__div
+            p= product.description
+            span= product.price + " جنيه"
+          button.product__button(type='button', name='button' data-id=`${product.id}` data-type="explore")
+            | ابحث عن اقرب موزع
+
+  //
+    ************************** Map section ******************************
+  section.mapbox#map--sec
+    h1 الموزعين
+    #map
+  //
+    ************************** contact section ******************************
+  section#contact.contact
+    form.contact--form
+      h1 تواصل معنا
+      p سيتم الرد عليك سريعا
+      div
+        input#contact_name(required type='text', name='', value='', placeholder='أكتب اسمك')
+      div
+        input#contact_email(required type='email', name='', value='', placeholder='اكتب البريد الخاص بك')
+
+      .textarea--div
+        textarea#contact_message(required name='name', placeholder='اكتب رسالتك')
+      .btn--div
+        button(type='submit', name='button') ارســــــال
