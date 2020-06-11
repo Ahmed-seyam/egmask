@@ -31,7 +31,7 @@ html(lang='ar', dir='rtl')
         -else
           a(class='nav__el--logout signout__btn__nav' href='') خروج
           a.user__btn__nav(href='profile?q=data')
-            span Ahmed |
+            span= `${user.name} |`
             img(src=`img/users/${user.photo}`, alt='')
 
     block content
