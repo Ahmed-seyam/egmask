@@ -45,7 +45,10 @@
     >img {
       height: 400px;
     }
+    @media #{$maxMop} {
+      display: none;
 
+    }
   }
   .header__welcome--div {
     width: 50%;
@@ -54,6 +57,10 @@
       width: 450px;
       text-align: justify;
       font-size: 19px;
+      @media #{$maxMop} {
+        width: 390px;
+
+      }
     }
   }
 }
@@ -61,6 +68,9 @@
 #team {
   padding: 50px;
   height: 83vh;
+  @media #{$maxMop} {
+    height: auto;
+  }
   h1 {
     width: 200px;
     height: 50px;
@@ -99,6 +109,11 @@
       justify-content: space-between;
       align-items: center;
       flex-flow: row;
+      @media #{$maxMop} {
+        flex-flow: column;
+
+      }
+
     }
   .member--div {
     height: 250px;
@@ -110,7 +125,11 @@
     border-radius: 20px;
     overflow: hidden;
     margin-top: 80px;
+    flex-flow: row;
+    @media #{$maxMop} {
+      width: 100%;
 
+    }
     .member__pic {
       height: 250px;
       padding-top: 40px;
@@ -118,7 +137,7 @@
       position: relative;
       &:before {
         background-color: $navColor;
-        opacity: .7;
+        opacity: 1;
         content: '';
         top: -10px;
         right: -10px;
@@ -195,6 +214,10 @@
         justify-content: space-between;
         align-items: center;
         margin: auto;
+        @media #{$maxMop} {
+          width: 90%;
+
+        }
         >span {
           position: relative;
           width: 50px;
