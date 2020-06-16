@@ -28,6 +28,12 @@ exports.getHome = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAbout = (req, res, next) => {
+  res.status(200).render("about", {
+    title: "معلومات عنا"
+  });
+};
+
 exports.getProduct = catchAsync(async (req, res, next) => {
   // 1) Get the data, for the requested tour (including reviews and guides)
   const product = await Product.findOne({ slug: req.params.slug }).populate({

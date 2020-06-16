@@ -7,6 +7,7 @@ const router = express.Router();
 router.use(viewsController.alerts);
 
 router.get("/", authController.isLoggedIn, viewsController.getHome);
+router.get("/about", authController.isLoggedIn, viewsController.getAbout);
 
 router.get(
   "/product/:slug",

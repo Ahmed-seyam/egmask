@@ -1,5 +1,7 @@
 /* eslint-disable */
 import "@babel/polyfill";
+import "vanilla-tilt";
+
 import { displayMap } from "./mapbox";
 import { login, logout } from "./login";
 import { signup } from "./signup";
