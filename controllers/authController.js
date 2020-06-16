@@ -233,9 +233,7 @@ exports.pleaseLogIn = (req, res, next) => {
   next();
 };
 
-exports.forgotPassword = authFactory.forgotPassword(User);
-exports.forgotPasswordPromoter = authFactory.forgotPassword(Promoter);
-exports.resetPassword = authFactory.resetPassword(User);
-exports.resetPasswordPromoter = authFactory.resetPassword(Promoter);
+exports.forgotPassword = authFactory.forgotPassword(User, Promoter);
+exports.resetPassword = authFactory.resetPassword(User, Promoter);
 exports.updatePassword = authFactory.updatePassword(User);
 exports.updatePasswordPromoter = authFactory.updatePassword(Promoter);

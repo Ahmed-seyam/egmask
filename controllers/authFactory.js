@@ -37,31 +37,39 @@ const createSendToken = (user, statusCode, res, req) => {
 
 // Protect Function
 
-const forgotPassword = Model =>
+const forgotPassword = (Model1, Model2) =>
   catchAsync(async (req, res, next) => {
     // 1) Get user based on POSTed email
-    const user = await Model.findOne({ email: req.body.email });
-    if (!user) {
+    const user = await Model1.findOne({ email: req.body.email });
+    const promoter = await Model2.findOne({ email: req.body.email });
+    if (!user && !promoter) {
       return next(new AppError("Something went wrong", 404));
     }
-
+    let email;
+    if (user) {
+      email = user;
+    }
+    if (promoter) {
+      email = promoter;
+    }
     // 2) Generate the random reset token
-    const resetToken = user.createPasswordResetToken();
-    await user.save({ validateBeforeSave: false });
+    const resetToken = email.createPasswordResetToken();
+    await email.save({ validateBeforeSave: false });
 
     // 3) Send it to user's email
 
     try {
-      await new Email(user, resetToken).sendPasswordReset();
+      console.log(resetToken);
+      await new Email(email, resetToken).sendPasswordReset();
 
       res.status(200).json({
         status: "success",
         message: "Token sent to email!"
       });
     } catch (err) {
-      user.passwordResetToken = undefined;
-      user.passwordResetExpires = undefined;
-      await user.save({ validateBeforeSave: false });
+      email.passwordResetToken = undefined;
+      email.passwordResetExpires = undefined;
+      await email.save({ validateBeforeSave: false });
       return next(
         new AppError("There was an error sending the email. Try again later!"),
         500
@@ -69,31 +77,41 @@ const forgotPassword = Model =>
     }
   });
 
-const resetPassword = Model =>
+const resetPassword = (Model1, Model2) =>
   catchAsync(async (req, res, next) => {
     // 1) Get user based on the token
     const hashedToken = crypto
       .createHash("sha256")
       .update(req.params.token)
       .digest("hex");
-
-    const user = await Model.findOne({
+    const user = await Model1.findOne({
       passwordResetToken: hashedToken,
       passwordResetExpires: { $gt: Date.now() }
     });
-    // 2) If token has not expired, and there is user, set the new password
-    if (!user) {
+    const promoter = await Model2.findOne({
+      passwordResetToken: hashedToken,
+      passwordResetExpires: { $gt: Date.now() }
+    });
+    if (!user && !promoter) {
       return next(new AppError("Token is invalid or has expired", 400));
     }
-    user.password = req.body.password;
-    user.passwordConfirm = req.body.passwordConfirm;
-    user.passwordResetToken = undefined;
-    user.passwordResetExpires = undefined;
-    await user.save();
+    let email;
+    if (user) {
+      email = user;
+    }
+    if (promoter) {
+      email = promoter;
+    }
+
+    email.password = req.body.password;
+    email.passwordConfirm = req.body.passwordConfirm;
+    email.passwordResetToken = undefined;
+    email.passwordResetExpires = undefined;
+    await email.save();
 
     // 3) Update changedPasswordAt property for the user
     // 4) Log the user in, send JWT
-    createSendToken(user, 200, res, req);
+    createSendToken(email, 200, res, req);
   });
 
 const updatePassword = Model =>
