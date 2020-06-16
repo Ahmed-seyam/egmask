@@ -65,7 +65,22 @@ exports.resetForm = (req, res) => {
 };
 
 exports.getSignupForm = (req, res) => {
-  res.status(200).render("auth", {
+  res.status(200).render("authUser", {
+    title: "سجل حساب"
+  });
+};
+
+exports.getSignupFormPromoter = catchAsync(async (req, res) => {
+  const products = await Product.find();
+
+  res.status(200).render("authPromoter", {
+    title: "سجل حساب",
+    products
+  });
+});
+
+exports.getSignupBtn = (req, res) => {
+  res.status(200).render("signup", {
     title: "سجل حساب"
   });
 };
@@ -73,6 +88,19 @@ exports.getSignupForm = (req, res) => {
 exports.getAccount = (req, res) => {
   res.status(200).render("account", {
     title: "الصفحه الشخصيه"
+  });
+};
+exports.getAdmin = (req, res) => {
+  res.status(200).render("admin", {
+    title: "الصفحه الشخصيه"
+  });
+};
+exports.getPromoter = async (req, res) => {
+  const products = await Product.find();
+
+  res.status(200).render("promoter", {
+    title: "الصفحه الشخصيه",
+    products
   });
 };
 

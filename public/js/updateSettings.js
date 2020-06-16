@@ -3,12 +3,12 @@ import axios from "axios";
 import { showAlert } from "./alerts";
 
 // type is either 'password' or 'data'
-export const updateSettings = async (data, type) => {
+export const updateSettings = async (data, type, person) => {
   try {
     const url =
       type === "password"
-        ? "/api/v1/users/updateMyPassword"
-        : "/api/v1/users/updateMe";
+        ? `/api/v1/${person}/updateMyPassword`
+        : `/api/v1/${person}/updateMe`;
 
     const res = await axios({
       method: "PATCH",

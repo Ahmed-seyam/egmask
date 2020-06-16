@@ -37,7 +37,7 @@ productSchema.pre("save", function(next) {
 // Virtual populate
 productSchema.virtual("promoters", {
   ref: "Promoter",
-  foreignField: "product",
+  foreignField: "products",
   localField: "_id"
 });
 

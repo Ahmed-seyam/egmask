@@ -55,57 +55,6 @@ block content
           .buttons.login--div
             button(class='btn__login btn--save-password' type='submit' name='button')
               | تحديث كلمه السر
-      - if (user.role === 'admin')
 
-        .profile__products--div
-          form(action='index.html' method='post' class='form--product form profile__form')
-            div
-              input#product_name(type='text' name='name' value='' placeholder='اسم المنتج')
-            div
-              input#price(type='number' name='price' value='' placeholder='سعر المنتج')
-            div
-              textarea#description(type='text' name='description' value='' placeholder='وصف المنتج')
-            .label--div
-              label.label(for='photo__product') اختر صوره للمنتج
-              input#photo__product(type='file' name='photo' value='')
-            .buttons.login--div
-              button.btn__login(type='submit' name='button')
-                | انشئ منتج
-        .delete__product--div
-          form(class='profile__form form delete__product--form' action='index.html' method='post')
-            div
-              input#id(type='text' neme='id' value='' placeholder='اكتب الاي دي ')
-            .login--div
-              button.btn__login(type='submit' name='button')
-                | احذف المنتج
-        div(class="profile__promoters--div form--promoter")
-          form(class='profile__form form form--promoter' action='index.html' method='post')
-            div
-              input#name(type='text' name='name' value='' placeholder='اسم الموزع')
-            div
-              input#email(type='email' name='email' value='' placeholder='البريد الالكتروني للموزع')
-            div
-              input#phone(type='text' name='phone' value='' placeholder='رقم التليفون')
-            div
-              input#product(type='text' name='phone' value='' placeholder='الاي دي الخاص بالمنتج')
-            #location
-              .points
-                input#lat(type='text' name='lat' value='' placeholder='خط العرض')
-                input#lng(type='text' name='lng' value='' placeholder='خط الطول')
-              .adress
-                input#adress(type='text' name='adress' value='' placeholder='العنوان')
-            .label--div
-              label.label(for='photo_promoter') اختر صوره للموزع
-              input#photo_promoter(type='file' name='password' value='')
-            .buttons.login--div
-              button.btn__login(type='submit' name='button')
-                | اضف موزع
-        .delete__promoter--div
-          form(class='profile__form form delete__promoter--form' action='index.html' method='post')
-            div
-              input.email__promoter(required type='text' neme='email' value='' placeholder='اكتب الاميل الخاص بالموزع')
-            .login--div
-              button(class='btn__login' type='submit' name='button')
-                | احذف موزع
       .image__profile
         img(src='img/dashboard.jpg' alt='')

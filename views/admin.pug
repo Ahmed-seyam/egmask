@@ -1,0 +1,84 @@
+extends base
+block content
+  section.profile--sec
+    .profile--div
+      .nav__profile
+        ul
+          li.data
+            a(href='?q=data')
+              span البيانات
+              i.fas.fa-calendar-week
+          li.pass
+            a(href='?q=pass')
+              span كلمه السر
+              i.fas.fa-lock
+
+          li.add_product
+            a(href='?q=add_product')
+              span   انشئ منتج
+              i.fab.fa-product-hunt
+          li.remove_product
+            a(href='?q=remove_product')
+              span   احذف منتج
+              i.fas.fa-minus-circle
+
+          li.remove_promoter
+            a(href='?q=remove_promoter')
+              span   احذف موزع
+              i.fas.fa-minus-circle
+
+      .profile__settings--div
+        form(class='form-user-data form profile__form' action='index.html' method='post')
+          .username
+            input#update_email(type='email' name='email' value=`${user.email}`)
+          div
+            input#update_name(type='text' name='name' value=`${user.name}`)
+          div
+            input#update_phone(type='text' name='tel' value=`${user.phoneNumber}`)
+          div
+            label.label(for='update_photo') تحديث صورتك
+            input#update_photo(type='file' name='password' value='')
+          .buttons.login--div
+            button.btn__login(type='submit' name='button')  تحديث البيانات
+      .profile__passowrd--div
+        form(class='form-user-password profile__form form' action='index.html' method='post')
+          .username
+            input(id='password-current' type='password' name='current-password' value='' placeholder='كلمه السر الحاليه ')
+          .username
+            input(id='password' type='password' name='new-password' value='' placeholder='كلمه السر الجديده')
+          .username
+            input(id='password-confirm' type='password' name='confirm-password' value='' placeholder='اعد كتابه كلمه السر')
+          .buttons.login--div
+            button(class='btn__login btn--save-password' type='submit' name='button')
+              | تحديث كلمه السر
+
+      .profile__products--div
+        form(action='index.html' method='post' class='form--product form profile__form')
+          div
+            input#product_name(type='text' name='name' value='' placeholder='اسم المنتج')
+          div
+            input#price(type='number' name='price' value='' placeholder='سعر المنتج')
+          div
+            textarea#description(type='text' name='description' value='' placeholder='وصف المنتج')
+          .label--div
+            label.label(for='photo__product') اختر صوره للمنتج
+            input#photo__product(type='file' name='photo' value='')
+          .buttons.login--div
+            button.btn__login(type='submit' name='button')
+              | انشئ منتج
+      .delete__product--div
+        form(class='profile__form form delete__product--form' action='index.html' method='post')
+          div
+            input#id(type='text' neme='id' value='' placeholder='اكتب الاي دي ')
+          .login--div
+            button.btn__login(type='submit' name='button')
+              | احذف المنتج
+      .delete__promoter--div
+        form(class='profile__form form delete__promoter--form' action='index.html' method='post')
+          div
+            input.email__promoter(required type='text' neme='email' value='' placeholder='اكتب الاميل الخاص بالموزع')
+          .login--div
+            button(class='btn__login' type='submit' name='button')
+              | احذف موزع
+      .image__profile
+        img(src='img/dashboard.jpg' alt='')

@@ -10,7 +10,7 @@
     flex-direction: column;
     margin: auto;
     background-color: #fff;
-    padding: 50px;
+    padding: 50px 50px 70px;
     border-radius: 20px;
     box-shadow: 0 0 1rem #eee;
     h3 {
@@ -97,7 +97,6 @@
     }
   }
   .login__form {
-    display: none;
     .foreget__password {
       text-align: center;
       width: 100%;
@@ -108,18 +107,16 @@
     }
   }
   .signup--form {
-    display: none;
   }
 
-  .backToHome {
+  .buttons_signup {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    display: none;
     a {
       background-color: $navColor;
       border: 1px solid $navColor;
-      font-size: 20px;
+      font-size: 17px;
       padding: 5px 10px ;
       width: 150px;
       border-radius: 20px;
@@ -136,8 +133,13 @@
   }
 }
 .form__login {
-  display: none;
   .foreget__password {
     margin-top: 40px;
+  }
+}
+
+.div_promoter {
+  >form {
+
   }
 }

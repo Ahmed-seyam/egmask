@@ -16,7 +16,6 @@
     box-shadow: 0 0 2rem #ddd;
 
     >.nav__profile {
-      width: 280px;
       height: 100%;
       background: linear-gradient(45deg,#35b4db,$navColor);
       direction: ltr;
@@ -29,10 +28,11 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-
+        width: 100%;
         >li {
+          margin-right: 20px;
           border-radius: 0 20px 20px 0;
-          width: 140px;
+          width: 180px;
           height: 40px;
           display: flex;
           align-items: center;
@@ -90,6 +90,10 @@
     }
     .profile__form {
       width: 100%;
+      height: 100%;
+      align-content: space-between;
+      display: grid;
+      flex-flow: column nowrap;
       @media #{$maxMop} {
         width: 100%;
         margin: auto;
@@ -119,6 +123,7 @@
           margin-bottom: 10px;
           border-bottom: 3px solid $navColor;
           text-transform: lowercase;
+          width: 300px;
         }
         textarea {
           resize: none;
@@ -153,12 +158,13 @@
           border: 1px solid $navColor;
           font-size: 20px;
           text-align: center;
-          border-radius: 20px;
+          border-radius: 2px;
+          transform: skewX(-10deg);
           color: #eee;
           cursor: pointer;
           transition: all .3s ease-in-out;
           display: block;
-          width: 45%;
+          width: 300px !important;
             padding: 8px 0;
 
           @media #{$maxMop} {
@@ -174,9 +180,10 @@
 
     // Profile password
     .profile__passowrd--div {
-      padding: 8rem  0 0;
+      padding: 8rem  0;
       width: 75%;
       display: none;
+      height: 100%;
       @media #{$maxMop} {
         width: 88%;
       }
@@ -202,10 +209,13 @@
         }
       }
     }
-    .delete__product--div, .delete__promoter--div, .profile__promoters--div  {
+    .delete__product--div ,.delete__promoter--div{
+      padding: 12rem 0 !important;
+    }
+    .delete__product--div,.profile__update_products--div, .delete__promoter--div, .profile__promoters--div ,.profile__location--div ,.profile__update_locations--div {
       width: 75%;
       padding: 12rem 0 0;
-      display: none;
+      display: none ;
       @media #{$maxMop} {
         width: 88%;
       }
@@ -219,21 +229,41 @@
       }
 
     }
+    .profile__location--div {
+      .coordinates {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row nowrap;
+        width: 56%;
+        margin-bottom: 2rem;
+        @media #{$maxMop} {
+          width: 80%;
+        }
+        input {
+          width: 130px !important;
+
+        }
+      }
+      .btn__login {
+        margin-top: 2rem;
+        width: 300px !important;
+      }
+    }
     .profile__promoters--div {
 
-      padding: 50px 0 0;
+      padding: 30px 0;
       #location {
-        width: 45%;
+        width: 57%;
         margin: auto;
         height: 120px;
         @media #{$maxMop} {
-          width: 65%;
+          width: 80%;
         }
         .points {
           display: flex;
           justify-content: space-between;
           >input{
-            width: 40%;
+            width: 45%;
           }
         }
       }
@@ -260,7 +290,178 @@
   }
 }
 
+.profile__update_locations--div {
+  padding: 4rem 1rem  !important;
+  display: flex;
+  flex-flow: column wrap;
+  overflow-y: auto;
+  .header_div {
+    display: flex;
+    justify-content: space-between;
 
+    margin-bottom: 25px;
+    >h3 {
+      width: 100px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 17px;
+      @media #{$maxMop} {
+        font-size: 16px;
+      }
+    }
+
+  }
+  >form {
+    padding: 0;
+
+    >div {
+      padding: 0 !important;
+      display: flex;
+      justify-content: space-between;
+      .coordinates{
+        width: 300px;
+
+      }
+      >div {
+        display: flex;
+        padding: 0;
+        flex-flow: row nowrap;
+        margin: auto;
+        margin: 0;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        >input {
+          width: 80px;
+          margin: auto;
+          border: none;
+          border-bottom: 2px solid $navColor;
+          padding: 3px 5px;
+          border-radius: 7px;
+          text-align: center;
+          color: #999;
+          &:focus {
+            outline: none;
+          }
+          @media #{$maxMop} {
+            width: 60px;
+          }
+        }
+      }
+      .update_icon, .remove_loc{
+        width: 100px;
+        >button {
+          margin: auto;
+          border: none;
+          cursor: pointer;
+          background-color: #f5f5f5;
+          padding: 0;
+          width: 25px;
+          height: 25px;
+          font-size: 19px;
+        }
+        >svg {
+          margin: 0;
+        }
+        .fa-check {
+          color: #08d040;
+        }
+        .fa-minus-circle{
+          color: #fe2b2b;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+.profile__update_products--div {
+  padding: 8rem 4rem 4rem!important;
+  >h3 {
+    position: relative;
+    width: 150px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    color: #666;
+    padding-bottom: 10px;
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 80%;
+      height: 5px;
+      border-radius: 50%;
+      content: '';
+      background-color: $navColor;
+    }
+  }
+  >form {
+    .checkboxes {
+      display: flex;
+      width: 70%;
+      flex-flow: row nowrap;
+      overflow-x: auto;
+      margin: auto;
+      margin-bottom: 30px;
+      >div {
+        margin: auto;
+        margin-bottom: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+      .check1 {
+        margin-right: 5px;
+        text-align: center;
+        >label {
+          padding: 5px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          display: inline;
+          min-width: 120px;
+        }
+        input[type=checkbox] {
+          width: 0;
+          height: 0;
+        }
+        input[type=checkbox] + label {
+          background-color: #f5f5f5 !important;
+        }
+        input[type=checkbox]:checked + label {
+          background-color: $navColor !important;
+          color: #f5f5f5;
+        }
+    }
+    }
+    .buttons.login--div{
+      margin: auto;
+    }
+    button {
+      background-color: $navColor;
+      border: 1px solid $navColor;
+      font-size: 20px;
+      padding: 10px ;
+      width: 70%;
+      border-radius: 2px;
+      color: #eee;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      display: block;
+      margin: auto;
+      transform: skewX(-8deg);
+      &:hover {
+        background: none;
+        color: $navColor;
+      }
+      &:focus {
+        outline: none;
+      }}
+  }
+}
 @keyframes image {
   0%{
     transform: translateY(-8px);

@@ -10,38 +10,40 @@ export const displayMap = promoters => {
     zoom: 15
     // interactive: false
   });
-
+  let el;
   const bounds = new mapboxgl.LngLatBounds();
-
+  console.log(promoters);
   promoters.forEach(promoter => {
     // Create marker
-    const el = document.createElement("div");
-    el.className = "marker";
+    promoter.locations.forEach((item, i) => {
+      el = document.createElement("div");
+      el.className = "marker";
 
-    // Add marker
-    new mapboxgl.Marker({
-      element: el,
-      anchor: "bottom"
-    })
-      .setLngLat(promoter.location.coordinates)
-      .addTo(map);
+      // Add marker
+      new mapboxgl.Marker({
+        element: el,
+        anchor: "bottom"
+      })
+        .setLngLat(item.coordinates)
+        .addTo(map);
 
-    // Add popup
-    new mapboxgl.Popup({
-      offset: 30
-    })
-      .setLngLat(promoter.location.coordinates)
-      .setHTML(
-        `
-        <p> ${promoter.phoneNumber}</p>
-        <p> ${promoter.email}</p>
-        <p> ${promoter.name}</p>
-        `
-      )
-      .addTo(map);
+      // Add popup
+      new mapboxgl.Popup({
+        offset: 30
+      })
+        .setLngLat(item.coordinates)
+        .setHTML(
+          `
+          <p> ${promoter.phoneNumber}</p>
+          <p> ${promoter.email}</p>
+          <p> ${promoter.name}</p>
+          `
+        )
+        .addTo(map);
 
-    // Extend map bounds to include current location
-    bounds.extend(promoter.location.coordinates);
+      // Extend map bounds to include current location
+      bounds.extend(item.coordinates);
+    });
   });
 
   map.fitBounds(bounds, {

@@ -1,0 +1,107 @@
+extends base
+block content
+  section.profile--sec(data-promoter=`${user._id}`)
+    .profile--div
+      .nav__profile
+        ul
+          li.data
+            a(href='?q=data')
+              span البيانات
+              i.fas.fa-calendar-week
+          li.pass
+            a(href='?q=pass')
+              span كلمه السر
+              i.fas.fa-lock
+          li.update_loc
+            a(href='?q=update_loc')
+              span اضافه اماكن
+              i.fas.fa-map-marker
+          li.update_locations
+            a(href='?q=updateLocations')
+              span تحديث المواقع
+              <i class="far fa-edit"></i>
+
+          li.updateProducts
+            a(href='?q=updateProducts')
+              span تحديث المنتاجات
+              i.fab.fa-product-hunt
+
+      .profile__settings--div
+        form(class='form-promoter-data form profile__form' action='index.html' method='post')
+          .username
+            input#update_email(type='email' name='email' value=`${user.email}`)
+          div
+            input#update_name(type='text' name='name' value=`${user.name}`)
+          div
+            input#update_phone(type='text' name='tel' value=`${user.phoneNumber}`)
+          div
+            label.label(for='update_photo') تحديث صورتك
+            input#update_photo(type='file' name='password' value='')
+          .buttons.login--div
+            button.btn__login(type='submit' name='button')  تحديث البيانات
+      .profile__passowrd--div
+        form(class='form-promoter-password profile__form form' action='index.html' method='post')
+          .username
+            input(id='password-current' type='password' name='current-password' value='' placeholder='كلمه السر الحاليه ')
+          .username
+            input(id='password' type='password' name='new-password' value='' placeholder='كلمه السر الجديده')
+          .username
+            input(id='password-confirm' type='password' name='confirm-password' value='' placeholder='اعد كتابه كلمه السر')
+          .buttons.login--div
+            button(class='btn__login btn--save-password' type='submit' name='button')
+              | تحديث كلمه السر
+
+      .profile__location--div
+        form(class='add_location-location profile__form form' action='index.html' method='post')
+          div(id=`location`)
+            div(class=` coordinates`)
+              input(id='lat' type='text' name='current-text' value='' placeholder='خط الطول')
+              input(id='lng' type='text' name='new-text' value='' placeholder='خط العرض')
+            div(class=`address`)
+              input(id='address' type='text' name='confirm-text' value='' placeholder='العنوان')
+            .buttons.login--div
+              button(class='btn__login' type='submit' name='button')
+                | اضافه مكان
+
+
+      .profile__update_locations--div(data-promoter=`${user._id}`)
+        .header_div
+          h3 العنوان
+          h3 خط الطول
+          h3 خط العرض
+          h3 تعديل
+          h3 حذف
+        each location, i in user.locations
+          form(class='update_location--form' data-num=`form${i}` action='index.html' method='post')
+            div(id=`location${i}`)
+              div(class=`coordinates`)
+                input(id=`address${i}` type='text' name='confirm-text' value=`${location.address}` )
+                input(id=`lat${i}` type='text' name='current-text' value=`${location.coordinates[0]}` )
+                input(id=`lng${i}` type='text' name='new-text' value=`${location.coordinates[1]}`)
+              div(class='update_icon' )
+                button(type='submit' data-id=`${location._id}` data-num=`${i}`  data-action='update')
+                  | <i class="fas fa-check "></i>
+              div(class='remove_loc')
+                button(type='submit' data-id=`${location._id}` data-action='delete')
+                  | <i class="fas fa-minus-circle"></i>
+
+
+      .profile__update_products--div
+        h3 قم باختيار المنتاجات
+        form(class='products_form' action='index.html' method='post')
+          .checkboxes
+            each product,i in products
+              .check1
+                input(id=`${product._id}` class=`input${i+1} input_check` type='checkbox' value='')
+                label.label_check(for=`${product._id}`)= product.name
+
+          .buttons.login--div
+            button(class='btn__login' type='submit')
+              | تحديث
+
+
+
+
+
+      .image__profile
+        img(src='img/dashboard.jpg' alt='')

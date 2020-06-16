@@ -1,0 +1,52 @@
+extends base
+block content
+
+  section.auth_promoter
+    .auth_promoter--div
+      h3.h3 سجل الان
+
+      form(class='form--signup_promoters')
+          .name
+            span الاسم
+            input#name_promoter(type='text', name='first-name', value='', placeholder='اكتب اسمك')
+          .username
+            span البريد الالكتروني
+            input#email_promoter(type='email', name='email', value='', placeholder='اكتب بريدك الالكتروني')
+          .username
+            span رقم الهاتف
+            input#phone_promoter(type='tel' name='phone' value='')
+
+          .password
+            span اكتب كلمه السر
+            input#password_promoter(type='password', name='password', value='', min='8', placeholder='اكتب كلمه السر')
+          .password
+            span اعد كتابه كلمه السر
+            input#passwordConfirm_promoter(type='password', name='password', value='', min='8', placeholder='اعد كتابه كلمه السر')
+
+          #locations
+            span حدد موقعك
+            .locations.locate
+              div(class= 'location1 loc')
+                .points
+                  input#lat1(type='text' name='lat' value='' placeholder='خط العرض')
+                  input#lng1(type='text' name='lng' value='' placeholder='خط الطول')
+                .adress
+                  input#adress_location1(type='text' name='adress' value='' placeholder='العنوان')
+              .btn__scroll
+                button(type='button' id='add_location')
+                  i(class="fas fa-plus")
+                  | اضف موقع اخر
+          #products_form
+            span المنتاجات
+            .checkboxes
+              each product,i in products
+                .check1
+                  input(id=`${product._id}` class=`input${i+1}` type='checkbox' value='')
+                  label.label_check(for=`${product._id}`)= product.name
+          .image__upload
+            span الصوره
+            label.label(for='photo_promoter') قم باختيار صوره
+            input#photo_promoter.upload--input(type='file', value='')
+          .buttons
+            button.btn__form(type='submit', formaction='data.html', name='button')
+              | سجــــــــــل

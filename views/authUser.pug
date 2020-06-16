@@ -1,0 +1,31 @@
+extends base
+block content
+
+  section.auth
+    .auth--div
+      form(class='form--signup signup--form')
+        .text
+          h3.h3 سجل الان
+        .name
+          span الاسم
+          input#name(type='text', name='first-name', value='', placeholder='اكتب اسمك')
+        .username
+          span البريد الالكتروني
+          input#email(type='email', name='email', value='', placeholder='اكتب بريدك الالكتروني')
+        .username
+          span رقم الهاتف
+          input#phone(type='tel' name='phone' value='')
+        .password
+          span اكتب كلمه السر
+          input#password(type='password', name='password', value='', min='8', placeholder='اكتب كلمه السر')
+        .password
+          span اعد كتابه كلمه السر
+          input#passwordConfirm(type='password', name='password', value='', min='8', placeholder='اعد كتابه كلمه السر')
+
+        .image__upload
+          span الصوره
+          label.label(for='photo') قم باختيار صوره
+          input#photo.upload--input(type='file', value='')
+        .buttons
+          button.btn__form(type='submit', formaction='data.html', name='button')
+            | سجــــــــــل

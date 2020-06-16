@@ -27,13 +27,13 @@ html(lang='ar', dir='rtl')
           a(href='/#contact') تواصل معنا
       .nav__buttons--div
         -if (!user)
-          a(class="login__btn__nav" href="/auth?q=login") دخول
-          a(class="signup__btn__nav" href="/auth?q=signup") تسجيل
+          a(class="login__btn__nav" href="/auth") دخول
+          a(class="signup__btn__nav" href="/signup") تسجيل
         -else
           a(class='nav__el--logout signout__btn__nav' href='') خروج
-          a.user__btn__nav(href='profile?q=data')
-            span= `${user.name} |`
-            img(src=`img/users/${user.photo}`, alt='')
+          a.user__btn__nav(href=`profile-${user.role}?q=data`)
+            span= `${user.name.split(' ')[0]} |`
+            img(src=`img/${user.locations ? 'promoters' : 'users'}/${user.photo}`, alt='')
 
     block content
 
