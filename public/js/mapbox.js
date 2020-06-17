@@ -34,9 +34,11 @@ export const displayMap = promoters => {
         .setLngLat(item.coordinates)
         .setHTML(
           `
-          <p> ${promoter.phoneNumber}</p>
           <p> ${promoter.email}</p>
           <p> ${promoter.name}</p>
+          <p> ${item.address}</p>
+          <p> ${promoter.phoneNumber}</p>
+
           `
         )
         .addTo(map);
