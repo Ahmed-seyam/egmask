@@ -410,33 +410,35 @@ if (signupPromoterPage) {
   addAnotherLocation();
 }
 
-if (window.location.search.match(/pass/g) !== null) {
-  document.querySelector(".profile__passowrd--div").style.display = "block";
-  document.querySelector(".pass").classList.add("active");
-} else if (window.location.search.match(/add_product/g) !== null) {
-  document.querySelector(".profile__products--div").style.display = "block";
-  document.querySelector(".add_product").classList.add("active");
-} else if (window.location.search.match(/remove_product/g) !== null) {
-  document.querySelector(".delete__product--div").style.display = "block";
-  document.querySelector(".remove_product").classList.add("active");
-} else if (window.location.search.match(/add_promoter/g) !== null) {
-  document.querySelector(".profile__promoters--div").style.display = "block";
-  document.querySelector(".add_promoter").classList.add("active");
-} else if (window.location.search.match(/remove_promoter/g) !== null) {
-  document.querySelector(".delete__promoter--div").style.display = "block";
-  document.querySelector(".remove_promoter").classList.add("active");
-} else if (window.location.search.match(/data/g) !== null) {
-  document.querySelector(".profile__settings--div").style.display = "block";
-  document.querySelector(".data").classList.add("active");
-} else if (window.location.search.match(/update_loc/g) !== null) {
-  document.querySelector(".profile__location--div").style.display = "block";
-  document.querySelector(".update_loc").classList.add("active");
-} else if (window.location.search.match(/updateLocations/g) !== null) {
-  document.querySelector(".profile__update_locations--div").style.display =
-    "block";
-  document.querySelector(".update_locations").classList.add("active");
-} else if (window.location.search.match(/updateProducts/g) !== null) {
-  document.querySelector(".profile__update_products--div").style.display =
-    "block";
-  document.querySelector(".updateProducts").classList.add("active");
+if (window.location.pathname.match(/profile/g) !== null) {
+  if (window.location.search.match(/pass/g) !== null) {
+    document.querySelector(".profile__passowrd--div").style.display = "block";
+    document.querySelector(".pass").classList.add("active");
+  } else if (window.location.search.match(/add_product/g) !== null) {
+    document.querySelector(".profile__products--div").style.display = "block";
+    document.querySelector(".add_product").classList.add("active");
+  } else if (window.location.search.match(/remove_product/g) !== null) {
+    document.querySelector(".delete__product--div").style.display = "block";
+    document.querySelector(".remove_product").classList.add("active");
+  } else if (window.location.search.match(/add_promoter/g) !== null) {
+    document.querySelector(".profile__promoters--div").style.display = "block";
+    document.querySelector(".add_promoter").classList.add("active");
+  } else if (window.location.search.match(/remove_promoter/g) !== null) {
+    document.querySelector(".delete__promoter--div").style.display = "block";
+    document.querySelector(".remove_promoter").classList.add("active");
+  } else if (window.location.search.match(/data/g) !== null) {
+    document.querySelector(".profile__settings--div").style.display = "block";
+    document.querySelector(".data").classList.add("active");
+  } else if (window.location.search.match(/update_loc/g) !== null) {
+    document.querySelector(".profile__location--div").style.display = "block";
+    document.querySelector(".update_loc").classList.add("active");
+  } else if (window.location.search.match(/updateLocations/g) !== null) {
+    document.querySelector(".profile__update_locations--div").style.display =
+      "block";
+    document.querySelector(".update_locations").classList.add("active");
+  } else if (window.location.search.match(/updateProducts/g) !== null) {
+    document.querySelector(".profile__update_products--div").style.display =
+      "block";
+    document.querySelector(".updateProducts").classList.add("active");
+  }
 }
