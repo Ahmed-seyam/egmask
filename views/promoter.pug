@@ -55,8 +55,8 @@ block content
         form(class='add_location-location profile__form form' action='index.html' method='post')
           div(id=`location`)
             div(class=` coordinates`)
-              input(id='lat' type='text' name='current-text' value='' placeholder='خط الطول')
-              input(id='lng' type='text' name='new-text' value='' placeholder='خط العرض')
+              input(id='lat' type='text' name='current-text' value='' placeholder="خط العرض")
+              input(id='lng' type='text' name='new-text' value='' placeholder='خط الطول')
             div(class=`address`)
               input(id='address' type='text' name='confirm-text' value='' placeholder='العنوان')
             .buttons.login--div
@@ -76,8 +76,8 @@ block content
             div(id=`location${i}`)
               div(class=`coordinates`)
                 input(id=`address${i}` type='text' name='confirm-text' value=`${location.address}` )
-                input(id=`lat${i}` type='text' name='current-text' value=`${location.coordinates[0]}` )
                 input(id=`lng${i}` type='text' name='new-text' value=`${location.coordinates[1]}`)
+                input(id=`lat${i}` type='text' name='current-text' value=`${location.coordinates[0]}` )
               div(class='update_icon' )
                 button(type='submit' data-id=`${location._id}` data-num=`${i}`  data-action='update')
                   | <i class="fas fa-check "></i>

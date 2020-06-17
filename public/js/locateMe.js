@@ -10,7 +10,7 @@ export const getLocation = () => {
 };
 
 function showPosition(position) {
-  document.getElementById("lat1").value = position.coords.longitude;
-  document.getElementById("lng1").value = position.coords.latitude;
+  document.getElementById("lng1").value = position.coords.longitude;
+  document.getElementById("lat1").value = position.coords.latitude;
   console.log(position.coords);
 }
