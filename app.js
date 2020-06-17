@@ -23,6 +23,8 @@ const emailRouter = require("./routes/emailRoutes");
 // Start Express App
 const app = express();
 
+app.use(compression());
+
 app.enable("trust proxy");
 
 app.set("view engine", "pug");
@@ -35,7 +37,6 @@ app.use(cors()); // Access-Control-Allow-Origin
 app.options("*", cors()); // Preflight phase
 
 // Serving static files
-
 app.use(express.static(path.join(__dirname, "public")));
 
 // Set security HTTP headers
@@ -69,8 +70,6 @@ app.use(xss());
 
 // Prevent parameter pollution
 app.use(hpp());
-
-app.use(compression());
 
 // Test middleware
 app.use((req, res, next) => {
