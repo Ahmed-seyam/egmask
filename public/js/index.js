@@ -18,6 +18,7 @@ import { showAlert } from "./alerts";
 import { addAnotherLocation } from "./signup_promoter_div";
 import "./all.min";
 import { objectToFormData } from "object-to-formdata";
+import { getLocation } from "./locateMe";
 import axios from "axios";
 
 // DOM ELEMENTS
@@ -43,6 +44,7 @@ const updateProducts = document.querySelector(".products_form");
 const updateLocation = Array.from(
   document.querySelectorAll(".update_location--form")
 );
+var x = document.getElementById("demo");
 
 if (loginForm)
   loginForm.addEventListener("submit", e => {
@@ -408,6 +410,10 @@ if (resetForm) {
 
 if (signupPromoterPage) {
   addAnotherLocation();
+}
+
+if (x) {
+  x.addEventListener("click", getLocation);
 }
 
 if (window.location.pathname.match(/profile/g) !== null) {
