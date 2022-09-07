@@ -87,8 +87,9 @@ if (signupPromoterForm)
         i++;
         return {
           coordinates: [
-            document.getElementById(`lat${i}`).value,
-            document.getElementById(`lng${i}`).value
+            document.getElementById(`lng${i}`).value,
+
+            document.getElementById(`lat${i}`).value
           ],
           address: document.getElementById(`adress_location${i}`).value
         };

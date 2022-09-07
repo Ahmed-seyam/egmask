@@ -24,20 +24,20 @@ exports.getHome = catchAsync(async (req, res, next) => {
   res.status(200).render("home", {
     title: "All Products",
     products,
-    covid
+    covid,
   });
 });
 
 exports.getAbout = (req, res, next) => {
   res.status(200).render("about", {
-    title: "معلومات عنا"
+    title: "معلومات عنا",
   });
 };
 
 exports.getProduct = catchAsync(async (req, res, next) => {
   // 1) Get the data, for the requested tour (including reviews and guides)
   const product = await Product.findOne({ slug: req.params.slug }).populate({
-    path: "promoters"
+    path: "promoters",
   });
 
   if (!product) {
@@ -48,31 +48,31 @@ exports.getProduct = catchAsync(async (req, res, next) => {
   // 3) Render template using data from 1)
   res.status(200).render("product", {
     title: `${product.name} Product`,
-    product
+    product,
   });
 });
 
 exports.getLoginForm = (req, res) => {
   res.status(200).render("auth", {
-    title: "ادخل الي حسابك"
+    title: "ادخل الي حسابك",
   });
 };
 
 exports.forgetForm = (req, res) => {
   res.status(200).render("forget", {
-    title: "نسيت كلمه السر"
+    title: "نسيت كلمه السر",
   });
 };
 
 exports.resetForm = (req, res) => {
   res.status(200).render("reset", {
-    title: "تحديث كلمه السر"
+    title: "تحديث كلمه السر",
   });
 };
 
 exports.getSignupForm = (req, res) => {
   res.status(200).render("authUser", {
-    title: "سجل حساب"
+    title: "سجل حساب",
   });
 };
 
@@ -81,58 +81,58 @@ exports.getSignupFormPromoter = catchAsync(async (req, res) => {
 
   res.status(200).render("authPromoter", {
     title: "سجل حساب",
-    products
+    products,
   });
 });
 
 exports.getSignupBtn = (req, res) => {
   res.status(200).render("signup", {
-    title: "سجل حساب"
+    title: "سجل حساب",
   });
 };
 
 exports.getAccount = (req, res) => {
   res.status(200).render("account", {
-    title: "الصفحه الشخصيه"
+    title: "الصفحه الشخصيه",
   });
 };
 exports.getAdmin = (req, res) => {
   res.status(200).render("admin", {
-    title: "الصفحه الشخصيه"
+    title: "الصفحه الشخصيه",
   });
 };
-exports.getPromoter = async (req, res) => {
+exports.getPromoter = async (_, res) => {
   const products = await Product.find();
 
   res.status(200).render("promoter", {
     title: "الصفحه الشخصيه",
-    products
+    products,
   });
 };
 
 exports.commingSoon = (req, res) => {
   res.status(200).render("commingSoon", {
-    title: "قريبا"
+    title: "قريبا",
   });
 };
 
-exports.updateUserData = catchAsync(async (req, res, next) => {
+exports.updateUserData = catchAsync(async (req, res) => {
   const updatedUser = await User.findByIdAndUpdate(
     req.user.id,
     {
       name: req.body.name,
       email: req.body.email,
-      phoneNumber: req.body.phoneNumber
+      phoneNumber: req.body.phoneNumber,
     },
     {
       new: true,
-      runValidators: true
+      runValidators: true,
     }
   );
 
   res.status(200).render("account", {
     title: "Your account",
-    user: updatedUser
+    user: updatedUser,
   });
 });
 
@@ -142,7 +142,7 @@ exports.recieveEmail = async (req, res, next) => {
     console.log(req.body);
     res.status(200).json({
       status: "success",
-      message: "message sent !"
+      message: "message sent !",
     });
   } catch (err) {
     return next(new AppError(err, 404));
